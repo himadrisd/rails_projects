@@ -1,0 +1,26 @@
+<%= form_for(@product) do |itr_frm| %>
+	<%= render "shared/errors" %>
+
+	<fieldset>
+		<ol>
+			<li class="required">
+				<%= itr_frm.label :name %>
+				<%= itr_frm.text_field :name, autofocus: true %>
+			</li>
+			<li class="required">
+				<%= itr_frm.label :price %>
+				<%= itr_frm.text_field :price, size: 8 %>
+			</li>
+			<li>
+				<%= itr_frm.label :description %>
+				<%= itr_frm.text_field :description, size: 50 %>
+			</li>
+			<li>
+				<%= itr_frm.label :status %>
+				<%= itr_frm.text_field :status, size: 1 %>
+			</li>
+		</ol>
+	</fieldset>
+
+	<%= itr_frm.submit %>
+<% end %>

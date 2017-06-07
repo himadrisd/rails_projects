@@ -1,0 +1,20 @@
+<% if @product.errors.any? %>
+	<section id="errors">
+		<header>
+			<h2> 
+				<font color="#FF0000">
+					Error, Could not save object!
+				</font>
+			</h2>
+			<h3>
+				Please correct the following
+				<%= pluralize(@product.errors.count, "error") %>
+			</h3>
+		</header>
+
+		<%= @product.errors.full_messages.each do |itr_err| %>
+			<li style="color: #FF0000;"> * <%= itr_err %> </li>
+		<% end %>
+
+	</section>
+<% end %>

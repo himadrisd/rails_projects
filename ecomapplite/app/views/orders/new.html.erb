@@ -1,0 +1,28 @@
+<header id="content-header"> 
+	<h1> New Order Registration for:  <%= link_to(@customer.firstname, @customer) %></h1>
+</header>
+
+<%= form_for([@customer, @order]) do |frm| %>
+	<% render "shared/errorsorder", object: @order %>
+	<fieldset>
+		<ol>
+			<li class='required'>
+
+				<%= frm.label :order_no %> "(O0000000)"
+				<%= frm.text_field :order_no, minlength: 8, size: 8, autofocus: true %>
+			</li>
+			<li class='required'>
+				<%= frm.label :date %>
+				<%= frm.text_field :date, minlength: 8, size: 8 %>
+			</li>
+			<li class='required'>
+				<%= frm.label :total %>
+				<%= frm.text_field :total, size: 15 %>
+			</li>
+		</ol>
+
+		<%= frm.submit %>
+		<%= link_to "Cancel", root_url, class: "button" %>
+		
+	</fieldset>
+<% end %>

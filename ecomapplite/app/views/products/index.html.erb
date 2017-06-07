@@ -1,0 +1,40 @@
+<h1>
+	<%= pluralize(@products.size, 'Product') %>
+</h1>
+<%#
+<h3>
+	<%= link_to "Add new products", new_product_path % >
+</h3>
+#%>
+<article>
+		<table>
+			<header><h2>"Product List"</h2></header>
+			<% @products.each do |itr_product| %>
+			<p>
+				<tr>
+					<th>"Product Name:"</th>
+					<td> <%= link_to(itr_product.name, itr_product) %> </td>
+					<td>
+						<td> <%= button_to "Add to Cart" , :action => :add_to_cart, :id => itr_product.id %> </td>
+					</td>
+				</tr>
+			</p>
+				<tr>
+					<th>"Product ID:"</th>
+					<td> <%= itr_product.id %> </td>
+				</tr>
+				<tr>
+					<th>"Product Price:"</th>
+					<td> <%= number_with_precision(itr_product.price, precision: 2) %> </td>
+				</tr>
+				<tr>
+					<th>"Product Details:"</th>
+					<td> <%= itr_product.description %> </td>
+				</tr>
+				<tr>
+					<th>"Product Status:"</th>
+					<td> <%= itr_product.status %> </td>
+				</tr>
+			<% end %>
+		</table>
+</article>

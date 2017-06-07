@@ -1,0 +1,26 @@
+<header id="content-header"> 
+	<h1>
+	Order Lines for <%#= link_to(@order.order_no, @order ) %>
+	</h1>
+</header>
+
+<div>
+<p>
+	<% @order_lines.each do |ol| %>
+		<li>
+			<h4> 
+				Order Id: <%= ol.order_id %>, 
+				Product Id: <%= ol.product_id %>,  
+				Quantity: <%= ol.qty %>
+				Unit Price: <%= ol.unit_price %>
+				Total Price: <%= ol.qty * ol.unit_price %> 
+			</h4>
+		</li>
+	<% end %>
+</p>
+</div>
+<p>
+	<% if flash[:notice] %>
+		<div id="notice" ><%= flash[:notice] %></div>
+	<% end %>
+</p>

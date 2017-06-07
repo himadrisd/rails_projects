@@ -1,0 +1,22 @@
+  	<header id="page-header" style="color: #632ABC; background: #B0B0B0;">
+  		<div id="masthead">
+	  		<h1> <%= link_to 'Ecomapp Lite', root_path %></h1>
+
+  			<nav>
+  				<p>
+  					<% if current_user %>
+  						<%= link_to current_user.firstname, current_user %>
+  						<%= link_to "Sign Out", session_path, method: :delete, class: "button" %>
+  					<% else %>
+	  					<%= link_to "Register new User  ", signup_path, class: "button" %>
+	  					<%= link_to "Sign In", new_session_path, class: "button" %>
+  					<% end %>
+  				</p>
+          <p>
+            <% if flash[:notice] %>
+            <div id="notice" ><%= flash[:notice] %></div>
+            <% end %>
+          </p>
+  			</nav>
+  		</div>
+  	</header>

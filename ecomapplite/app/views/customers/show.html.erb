@@ -1,0 +1,25 @@
+<article id="customer">
+	<header>
+		<h1> <%= @customer.firstname + " " + @customer.lastname %> </h1>
+		<h1> <%= @customer.email %> </h1>
+	</header>
+
+	<ol>
+		<p>
+			<tr>
+				<li>
+					 <%= link_to "Check order(s)",customer_orders_path(@customer) %>
+				</li>
+
+
+			</tr>
+		</p>
+	</ol>
+	<footer>
+		<nav>
+			<% if current_user?(@customer) %>
+				<%= link_to "Edit User Account", edit_customer_path(@customer), class: "button" %>
+			<% end %>
+		</nav>
+	</footer>
+</article>

@@ -1,0 +1,66 @@
+<article>
+		<table>
+			<header><h2>Product details:</h2></header>
+				<p>
+					<tr>
+						<th>Product ID:</th>
+						<td> <%= @product.id %> </td>
+					</tr>
+					<tr>
+						<th>Product Name:</th>
+						<td> <%= @product.name %> </td>
+
+					</tr>
+					<tr>
+						<th>Product Price:</th>
+						<td> <%= number_with_precision(@product.price, precesion: 2) %> </td>
+					</tr>
+
+					<tr>
+						<th>
+							<td>
+								<%= pluralize(@orders.size, 'order')%>
+							</td>
+						</th>
+						<td>
+							<% if @orders.any? %>
+								<h3>Order trends</h3>
+								<ul>
+									<% @orders.each do |o| %>
+										<li>Oder No:<%= o.order_no %>
+											Date:<%= o.date %>
+											 <%= link_to o.total, order_line_path %>
+										</li>
+									<% end %>
+								</ul>
+							<% end %>
+						</td>
+					</tr>
+					<tr>
+						<th>Product Description:</th>
+						<td> <%= @product.description %> </td>
+					</tr>
+					<tr>
+						<th>Product Status:</th>
+						<td> <%= @product.status %> </td>
+					</tr>
+				</p>
+		</table>
+
+		<table>
+			<tr>
+				<td>
+					<%= link_to "All Products", products_path %>
+				</td>
+				<td>
+					<% if current_user_admin? %> 
+						<%= link_to "Edit", edit_product_path(@product) %>
+					<% end %>
+				</td>
+				<td>
+					<td> <%= button_to "Add to Cart" , :action => :add_to_cart, :id => @product.id %> </td>
+				</td>
+			</tr>
+		</table>
+</article>
+

@@ -1,0 +1,22 @@
+<header id="content-header"> 
+	<h1>Orders for <%= link_to(@customer.firstname, @customer) %></h1>
+</header>
+
+<div>
+<p>
+	<% @orders.each do |o| %>
+		<li>
+			<h4> 
+				Order No: <%= o.order_no %>, 
+				Order Total: <%= o.total %>,  
+				Order Date: <%= o.date %> 
+			</h4>
+		</li>
+	<% end %>
+</p>
+</div>
+<p>
+	<% if flash[:notice] %>
+		<div id="notice" ><%= flash[:notice] %></div>
+	<% end %>
+</p>

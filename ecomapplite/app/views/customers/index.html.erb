@@ -1,0 +1,15 @@
+<header id="content-header">
+	<h1> <%= pluralize(@customers.size, 'Customer') %> </h1>
+</header>
+
+<ul id="customers">
+	<% @customers.each do |itr_user| %>
+		<li>
+			<% if current_user %>
+				<% user_name = itr_user.firstname + " " +
+				 itr_user.lastname %>
+				<%= link_to user_name, itr_user %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>

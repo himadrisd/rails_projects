@@ -1,0 +1,125 @@
+<%= form_for(@customer, url: 'save_order') do |itr_frm| %>
+	<%= render "shared/errorsuser" %>
+
+	<fieldset>
+		<ol>
+			<p>
+			<legend>Please Confirm Your Details</legend>
+			</p>
+
+			<li class="required">
+				<%= itr_frm.label :firstname %>
+				<%= itr_frm.text_field :firstname, autofocus: true, size: 30 %>
+			</li>
+			<li class="required">
+				<%= itr_frm.label :lastname %>
+				<%= itr_frm.text_field :lastname, size: 20 %>
+			</li>
+			<li class="required">
+				<%= itr_frm.label :email %>
+				<%= itr_frm.email_field :email, size: 50 %>
+			</li>
+			<p class="required">
+				<%= itr_frm.label :password %>
+				<%= itr_frm.password_field :password, minlength: 7, size: 40  %>
+			</p>
+			<p>
+				<%= itr_frm.label :password_confirmation, "Confirm Password" %>
+				<%= itr_frm.password_field :password_confirmation, minlength: 7, size: 40 %>
+			</p>
+		</ol>
+		</fieldset>
+
+<%# end %>
+<div class="order-form" >
+	<%#= error_messages_for 'order' %>
+	<fieldset> 
+		<ol>
+			<legend>Credit Card Details</legend>
+				<p>
+					<tr>
+						<td>
+						<label for="creditcard_no" >Credit Card No:</label>
+						<%= itr_frm.label "4111111111111111" %> 
+						</td>
+						<td><%= text_field_tag :cc_no  %></td>
+					<tr>
+				</p>
+				<p>
+					<tr>
+						<td>
+							<label for="month" >Credit Expiry Month:</label>
+							<%= itr_frm.label "10" %>
+						</td>
+						<td><%= text_field_tag :cc_month  %></td>
+					<tr>
+				</p>
+				<p>
+					<tr>
+						<td>
+							<label for="year" >Credit Expiry Year:</label>
+							<%= itr_frm.label "2019" %>
+						</td>
+						<td><%= text_field_tag :cc_year  %></td>
+					<tr>
+				</p>
+				<p>
+					<tr>
+						<td>
+							<label for="cvv" >Credit Card pin/cvv:</label>
+							<%= itr_frm.label "421" %>
+						</td>
+						<td><%= text_field_tag :cc_pin  %></td>
+					<tr>
+				</p>
+				<p>
+					<tr>
+						<td>
+							<label for="name_in_card" >Credit Name:</label>
+						</td>
+						<td><%= text_field_tag :cc_name  %></td>
+					<tr>
+				</p>
+		</ol>
+	</fieldset>
+<div class="order-form" >
+	<%#= error_messages_for 'order' %>
+	<fieldset> 
+	<ol>
+		<legend>Billing Details</legend>
+		<%# form_for(@order, url: 'save_order') do |itr_frm1| %>
+		<%# form_for :order, :url => { :action => :save_order } do |form| %>
+				<p>
+					<label for="order_no" >Order No:</label>
+					<%= itr_frm.label "O0324224" %>
+					<%#= itr_frm.text_field :firstname, :size => 50 %>
+				</p>
+				<p>
+					<label for="order_total" >Total Amount:</label>
+					<%= itr_frm.label "125032/100" %>
+					<%#= itr_frm.text_area :address, :rows => 3, :cols => 40 %>
+				</p>
+				<p>
+					<label for="order_time" >Order Time:</label>
+					<%= itr_frm.label Time.now.strftime("%H:%M:%S") %>
+					<%#= itr_frm.text_field :email, :size => 40 %>
+				</p>
+				<p>
+					<label for="order_date" >Order Date:</label>
+					<%= itr_frm.label Time.now.to_date.strftime("%d/%m/%Y") %>
+					<%#= itr_frm.text_field :email, :size => 40 %>
+				</p>
+				<p>
+					<label for="order_pay_type" >Pay with:</label>
+					
+					<%= radio_button_tag(:pay, "Credit Card") %>
+					<%= label_tag(:credit_card, "Pay with credit card") %>
+					<%#= radio_button_tag(:pay, "Bank Transfer") %>
+					<%#= label_tag(:bank_transfer, "Pay with wire/bank transfer: TT") %>
+				</p>
+				
+				<%= submit_tag "Place Order" , :class => "submit" %>
+			<% end %>
+	</ol>		
+	</fieldset>
+</div>

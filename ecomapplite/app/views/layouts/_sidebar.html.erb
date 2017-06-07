@@ -1,0 +1,64 @@
+<aside style="width: 250px; float: right; color: #632ABC; background: #B0B0B0;">
+	<nav>
+		<ul>
+			<li>
+				<%= link_to "All Products", products_path %>
+			</li>
+      <% if current_user_admin? %>
+        <li>
+            <%= link_to "Add new products", new_product_path %>
+        </li>
+      <% end %>
+<%#			<li>
+				<%= link_to "Customers", customers_path % >
+			</li>
+#%>
+		</ul>
+		<ul>
+			<% if current_user %>
+	            <% if session[:cart] && session[:cart].size > 0 %>
+	           		<%= "Cart-items: #{session[:cart].size.to_s}" %>
+		            <% session[:cart].each do |itr| %>
+	    	            <li><%= "#{itr}" %></li>
+	        	    <% end %>
+		            <p>
+		            	<%#= link_to "Empty Cart", "empty_cart", id: current_user.id %>
+		            	<%= link_to "Empty Cart", "empty_cart" %>
+		            	<%= link_to "Checkout", "checkout" %>
+					</p>
+	            <% else %>
+	            	<% if session[:cart] %>
+		           		<%= "Cart-items: #{session[:cart].size.to_s}" %>
+	           		<% end %>
+		            <p>
+		            	<%#= link_to "Empty Cart", "empty_cart", id: current_user.id %>
+		            	<% if current_user_admin? %>
+		            	<%= link_to "Show All Customers", customers_path %>
+						<% end %>
+					</p>
+		            <p>
+		            	<%#= link_to "Empty Cart", "empty_cart", id: current_user.id %>
+		            	<%#= link_to "Show Orders", order_lines_path %>
+					</p>
+		            <p>
+		            	<%#= link_to "Empty Cart", "empty_cart", id: current_user.id %>
+		            	<%#= link_to "Show Order Lines", order_order_lines_path %>
+					</p>
+
+	            <% end %>
+					<p>
+						<tr>
+							<li>
+								 <%= link_to "Check your order(s)",customer_orders_path(current_user.id) %>
+							</li>
+						</tr>
+					</p>
+            <% end %>
+		</ul>
+	    <p>
+	        <%# if flash[:notice] % >
+	        	<div id="notice" ><%= flash[:notice] % ></div>
+	        <% end %>
+	    </p>
+	</nav>
+</aside>
