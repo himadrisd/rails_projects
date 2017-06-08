@@ -79,7 +79,7 @@ Order.create!([
 		order_no: "O0000004",
 		customer_id: "2",
 		total: 460.00,
-		date: "10/12/2016"
+		date: "10/04/2017"
 	}
 	])	
 
