@@ -29,7 +29,7 @@ Customer.create!([
 		id: 1,
 		firstname: "Admin",
 		lastname: "User",
-		email: "admin@crossover.com",
+		email: "admin@example.com",
 		password_digest: "$2a$10$CI3pmpndAIwRAOwMQ7QTU.Lz9akvs/LaYkVvnSKF6uu6a9.P//cHi",
 		admin: 1
 	},
@@ -37,7 +37,7 @@ Customer.create!([
 		id: 2,
 		firstname: "Himadri",
 		lastname: "Das",
-		email: "himadri@crossover.com",
+		email: "himadri@example.com",
 		password_digest: "$2a$10$w0P8OTnruOC4mj18LJnWGOq805P00dQIUOKdYz1Odpwt6OFAq28lW",
 		admin: 0
 	},
